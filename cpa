@@ -1,0 +1,363 @@
+<!-- PASTE THIS IN: Blogger > New Page > HTML mode (< > button) -->
+
+<link href='https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=DM+Sans:wght@300;400;500;600;700&amp;family=DM+Mono:wght@400;500&amp;display=swap' rel='stylesheet'/>
+
+<style>
+/*<![CDATA[*/
+#kab,#kab *,#kab *:before,#kab *:after{box-sizing:border-box;margin:0;padding:0;}
+#kab a{text-decoration:none;color:inherit;}
+#kab button{cursor:pointer;font-family:inherit;border:none;outline:none;}
+#kab{
+  --bg:#070710;--bg2:#0d0d1c;--bg3:#111128;
+  --blue:#2979ff;--blueb:#448aff;
+  --glow:rgba(41,121,255,.42);--dim:rgba(41,121,255,.09);
+  --bdr:rgba(255,255,255,.07);--txt:#f0f0ff;
+  --muted:rgba(240,240,255,.45);
+  --sans:'DM Sans',-apple-system,sans-serif;
+  --mono:'DM Mono',monospace;
+  --display:'Bebas Neue',sans-serif;
+  font-family:var(--sans);-webkit-font-smoothing:antialiased;
+  color:var(--txt);background:var(--bg);overflow-x:hidden;width:100%;position:relative;
+}
+/* NAV */
+#kab .kn{position:fixed;top:0;left:0;right:0;z-index:9999;padding:13px 20px;background:rgba(7,7,16,.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--bdr);display:flex;align-items:center;justify-content:space-between;}
+#kab .kn-brand{display:flex;align-items:center;gap:9px;}
+#kab .kn-ico{width:28px;height:28px;border-radius:7px;flex-shrink:0;background:linear-gradient(135deg,var(--blue),#0d47a1);display:flex;align-items:center;justify-content:center;}
+#kab .kn-ico svg{width:12px;height:12px;fill:#fff;}
+#kab .kn-name{font-size:13px;font-weight:700;letter-spacing:-.2px;}
+#kab .kn-live{display:flex;align-items:center;gap:6px;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
+#kab .kn-dot{width:7px;height:7px;border-radius:50%;background:#22c55e;flex-shrink:0;animation:kabDot 2s infinite;}
+@keyframes kabDot{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(34,197,94,.5);}50%{opacity:.6;box-shadow:0 0 0 4px rgba(34,197,94,0);}}
+/* HERO */
+#kab .kh{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:110px 20px 70px;position:relative;overflow:hidden;background-image:linear-gradient(rgba(41,121,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(41,121,255,.035) 1px,transparent 1px);background-size:55px 55px;background-color:var(--bg);}
+#kab .kh-orb{position:absolute;border-radius:50%;filter:blur(100px);pointer-events:none;}
+#kab .kh-orb1{width:500px;height:500px;background:rgba(41,121,255,.1);top:-80px;left:50%;transform:translateX(-55%);}
+#kab .kh-orb2{width:280px;height:280px;background:rgba(80,40,220,.07);bottom:0;right:-40px;}
+#kab .kh-inner{max-width:720px;width:100%;text-align:center;position:relative;z-index:2;}
+#kab .kh-tag{display:inline-flex;align-items:center;gap:7px;background:rgba(41,121,255,.1);border:1px solid rgba(41,121,255,.22);border-radius:100px;padding:6px 16px;font-family:var(--mono);font-size:10px;font-weight:500;color:var(--blueb);letter-spacing:.09em;text-transform:uppercase;margin-bottom:26px;animation:kabUp .7s ease both;}
+#kab .kh-tag svg{width:12px;height:12px;fill:currentColor;}
+#kab .kh-h1{font-family:var(--display);font-size:clamp(2.8rem,11vw,6.8rem);line-height:.94;letter-spacing:1px;background:linear-gradient(140deg,#fff 0%,#c5d8ff 45%,var(--blueb) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:22px;animation:kabUp .7s .1s ease both;}
+#kab .kh-sub{font-size:clamp(.92rem,3vw,1.12rem);color:var(--muted);line-height:1.72;max-width:500px;margin:0 auto 40px;font-weight:300;animation:kabUp .7s .2s ease both;}
+#kab .kh-sub strong{color:rgba(255,255,255,.82);font-weight:600;}
+/* BUTTON */
+#kab .kb{display:inline-flex;align-items:center;gap:10px;padding:17px 34px;border-radius:12px;background:linear-gradient(135deg,#2979ff 0%,#1565c0 100%);color:#fff;font-family:var(--sans);font-size:clamp(13px,3.5vw,16px);font-weight:700;letter-spacing:-.1px;position:relative;overflow:hidden;box-shadow:0 8px 32px rgba(41,121,255,.35);transition:transform .22s,box-shadow .22s;animation:kabUp .7s .3s ease both;}
+#kab .kb svg{width:17px;height:17px;fill:currentColor;flex-shrink:0;}
+#kab .kh-note{margin-top:11px;font-size:11px;color:rgba(255,255,255,.24);display:flex;align-items:center;justify-content:center;gap:5px;animation:kabUp .7s .42s ease both;}
+#kab .kh-note svg{width:10px;height:10px;fill:currentColor;opacity:.5;}
+/* STATS */
+#kab .ks{background:var(--bg2);border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);padding:34px 16px;}
+#kab .ks-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:820px;margin:0 auto;}
+#kab .ks-card{background:var(--bg3);border:1px solid var(--bdr);border-radius:14px;padding:22px 12px;text-align:center;transition:transform .25s,box-shadow .25s,border-color .25s;}
+#kab .ks-num{font-family:var(--mono);font-size:clamp(1.4rem,5vw,2.3rem);font-weight:500;line-height:1;margin-bottom:5px;letter-spacing:-1px;}
+#kab .ks-lbl{font-size:11.5px;font-weight:600;margin-bottom:3px;}
+#kab .ks-sub{font-size:10px;color:var(--muted);}
+/* VALUE CARDS */
+#kab .kv{padding:68px 16px;background:var(--bg);}
+#kab .kv-wrap{max-width:900px;margin:0 auto;}
+#kab .kv-eye{font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--blueb);margin-bottom:9px;display:block;}
+#kab .kv-ttl{font-family:var(--display);font-size:clamp(1.8rem,5vw,2.9rem);letter-spacing:.5px;line-height:1.05;margin-bottom:36px;color:var(--txt);}
+#kab .kv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+#kab .kv-card{background:var(--bg2);border:1px solid var(--bdr);border-radius:18px;padding:26px 20px;position:relative;overflow:hidden;transition:transform .28s,box-shadow .28s,border-color .28s;}
+#kab .kv-ico{width:44px;height:44px;border-radius:12px;background:var(--dim);border:1px solid rgba(41,121,255,.14);display:flex;align-items:center;justify-content:center;margin-bottom:16px;color:var(--blueb);}
+#kab .kv-ico svg{width:22px;height:22px;fill:currentColor;}
+#kab .kv-n{position:absolute;top:16px;right:16px;font-family:var(--mono);font-size:10px;color:rgba(255,255,255,.1);}
+#kab .kv-card h3{font-size:1rem;font-weight:700;margin-bottom:8px;letter-spacing:-.2px;color:var(--txt);}
+#kab .kv-card p{font-size:13px;color:var(--muted);line-height:1.66;margin-bottom:14px;}
+#kab .kv-chip{display:inline-flex;align-items:center;gap:5px;background:var(--dim);border:1px solid rgba(41,121,255,.14);border-radius:7px;padding:4px 10px;font-family:var(--mono);font-size:10px;font-weight:500;color:var(--blueb);}
+#kab .kv-chip svg{width:8px;height:8px;fill:var(--blue);}
+/* CTA2 */
+#kab .kc2{padding:68px 16px 88px;background:var(--bg2);position:relative;overflow:hidden;text-align:center;}
+#kab .kc2-orb{position:absolute;width:500px;height:500px;border-radius:50%;background:rgba(41,121,255,.08);filter:blur(90px);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;}
+#kab .kc2-pill{display:inline-flex;align-items:center;gap:6px;background:rgba(0,230,118,.08);border:1px solid rgba(0,230,118,.2);border-radius:100px;padding:5px 14px;margin-bottom:18px;font-size:10px;font-weight:700;color:#00e676;letter-spacing:.06em;}
+#kab .kc2 h2{font-family:var(--display);font-size:clamp(1.9rem,6vw,3.4rem);letter-spacing:.5px;line-height:1.05;margin-bottom:12px;background:linear-gradient(140deg,#fff 0%,#82b1ff 60%,var(--blueb) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;position:relative;z-index:2;}
+#kab .kc2 p{font-size:14px;color:var(--muted);line-height:1.7;max-width:400px;margin:0 auto 30px;position:relative;z-index:2;}
+#kab .kc2 .kb{margin:0 auto;position:relative;z-index:2;}
+/* FOOTER */
+#kab .kf{padding:20px;background:var(--bg);border-top:1px solid var(--bdr);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+#kab .kf-links{display:flex;gap:18px;}
+#kab .kf-links a{font-size:12px;color:rgba(255,255,255,.25);transition:color .2s;}
+#kab .kf-tag{display:inline-flex;align-items:center;gap:5px;background:var(--dim);border:1px solid rgba(41,121,255,.12);border-radius:7px;padding:4px 10px;font-size:10px;color:rgba(255,255,255,.3);}
+#kab .kf-tag svg{width:10px;height:10px;fill:var(--blue);}
+/* REVEAL */
+#kab .r{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;}
+#kab .r.in{opacity:1;transform:translateY(0);}
+#kab .r.d1{transition-delay:.1s;}
+#kab .r.d2{transition-delay:.22s;}
+/* MODAL */
+#kab-ov{display:none;position:fixed;inset:0;z-index:99999;align-items:center;justify-content:center;padding:16px;background:rgba(4,4,14,.78);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);}
+#kab-ov.on{display:flex;}
+#kab-mo{background:linear-gradient(160deg,#0e0e22 0%,#09090f 100%);border:1px solid rgba(41,121,255,.24);border-radius:20px;padding:36px 24px 30px;max-width:420px;width:100%;position:relative;text-align:center;box-shadow:0 32px 90px rgba(0,0,0,.85),0 0 80px rgba(41,121,255,.1);animation:kabModal .35s cubic-bezier(.34,1.3,.64,1) both;}
+@keyframes kabModal{from{opacity:0;transform:scale(.88) translateY(18px);}to{opacity:1;transform:scale(1) translateY(0);}}
+#kab-cl{position:absolute;top:13px;right:13px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.35);border-radius:8px;width:30px;height:30px;display:flex;align-items:center;justify-content:center;font-size:15px;transition:background .2s,color .2s;}
+#kab-p1 .sp-ico{width:54px;height:54px;border-radius:15px;background:rgba(41,121,255,.09);border:1px solid rgba(41,121,255,.2);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;}
+#kab-p1 .sp-ico svg{animation:kabSpin 1.5s linear infinite;}
+@keyframes kabSpin{to{transform:rotate(360deg);}}
+#kab-p1 h4{font-family:var(--sans,sans-serif);font-size:.95rem;font-weight:700;color:#f0f0ff;margin-bottom:5px;}
+#kab-p1 p{font-family:var(--sans,sans-serif);font-size:12.5px;color:rgba(240,240,255,.45);line-height:1.55;margin-bottom:18px;}
+#kab-bw{background:rgba(255,255,255,.06);border-radius:100px;height:7px;overflow:hidden;margin-bottom:7px;}
+#kab-b{height:100%;width:0%;border-radius:100px;background:linear-gradient(90deg,#2979ff,#60a5fa);box-shadow:0 0 10px rgba(41,121,255,.5);transition:width .08s linear;}
+#kab-pt{font-family:monospace;font-size:11px;font-weight:500;color:rgba(240,240,255,.45);}
+#kab-p2{display:none;}
+#kab-p2.on{display:block;}
+#kab-p2 .v-ico{width:58px;height:58px;border-radius:16px;background:rgba(41,121,255,.09);border:1px solid rgba(41,121,255,.22);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;}
+#kab-p2 h3{font-family:'Bebas Neue',sans-serif;font-size:1.75rem;letter-spacing:.3px;line-height:1.1;margin-bottom:10px;color:#f0f0ff;}
+#kab-p2 .vb{font-family:var(--sans,sans-serif);font-size:13px;color:rgba(240,240,255,.45);line-height:1.68;margin:0 auto 18px;max-width:310px;}
+#kab-p2 .vb strong{color:rgba(255,255,255,.78);font-weight:600;}
+#kab-p2 .vw{background:rgba(255,170,0,.07);border:1px solid rgba(255,170,0,.18);border-radius:10px;padding:10px 13px;display:flex;align-items:flex-start;gap:8px;text-align:left;margin-bottom:18px;}
+#kab-p2 .vw svg{width:14px;height:14px;fill:#ffaa00;flex-shrink:0;margin-top:1px;}
+#kab-p2 .vw span{font-size:11.5px;color:rgba(255,200,80,.75);line-height:1.55;}
+#kab-p2 .vw strong{color:rgba(255,210,80,.9);}
+#kab-p2 .vbtn{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;padding:15px 20px;border-radius:11px;background:linear-gradient(135deg,#2979ff 0%,#1565c0 100%);color:#fff;font-family:var(--sans,sans-serif);font-size:15px;font-weight:800;text-decoration:none;letter-spacing:.02em;box-shadow:0 8px 26px rgba(41,121,255,.35);transition:transform .2s,box-shadow .2s;}
+#kab-p2 .vbtn svg{width:16px;height:16px;fill:currentColor;}
+#kab-p2 .vfn{margin-top:10px;font-size:10px;color:rgba(255,255,255,.2);line-height:1.5;}
+/* ANIMATIONS */
+@keyframes kabUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+/* RESPONSIVE */
+@media(max-width:640px){
+  #kab .ks-grid{grid-template-columns:1fr 1fr;}
+  #kab .ks-grid .ks-card:last-child{grid-column:1/-1;}
+  #kab .kv-grid{grid-template-columns:1fr;}
+  #kab .kf{flex-direction:column;align-items:center;text-align:center;}
+  #kab .kf-links{justify-content:center;}
+  #kab-mo{padding:28px 16px 24px;}
+  #kab-p2 h3{font-size:1.5rem;}
+}
+@media(max-width:380px){
+  #kab .ks-grid{grid-template-columns:1fr;}
+  #kab .ks-grid .ks-card:last-child{grid-column:auto;}
+}
+/*]]>*/
+</style>
+
+
+<!-- PAGE WRAPPER -->
+<div id="kab">
+
+  <!-- NAV -->
+  <nav class="kn">
+    <div class="kn-brand">
+      <div class="kn-ico">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+      <span class="kn-name">AnimationBlueprint</span>
+    </div>
+    <div class="kn-live"><div class="kn-dot"></div>Free Access</div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="kh">
+    <div class="kh-orb kh-orb1"></div>
+    <div class="kh-orb kh-orb2"></div>
+    <div class="kh-inner">
+      <div class="kh-tag">
+        <svg viewBox="0 0 24 24"><path d="M21.8 8s-.2-1.4-.8-2c-.8-.8-1.7-.8-2.1-.9C16.2 5 12 5 12 5s-4.2 0-6.9.1c-.4.1-1.3.1-2.1.9-.6.6-.8 2-.8 2S2 9.6 2 11.2v1.5c0 1.6.2 3.2.2 3.2s.2 1.4.8 2c.8.8 1.8.8 2.3.8C6.8 19 12 19 12 19s4.2 0 6.9-.2c.4-.1 1.3-.1 2.1-.9.6-.6.8-2 .8-2s.2-1.6.2-3.2v-1.5C22 9.6 21.8 8 21.8 8zM9.7 14.5V9l5.7 2.8-5.7 2.7z"/></svg>
+        YouTube Automation Guide
+      </div>
+      <div class="kh-h1">Kids Animation<br/>=&#160;Silent Money<br/>Machine</div>
+      <p class="kh-sub">Steal my <strong>3-step blueprint</strong> to build a faceless AI empire &#8212; no camera, no editing skills, no experience needed.</p>
+      <button class="kb" onclick="kabOpen()">
+        <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+        Download Blueprint (Free PDF)
+      </button>
+      <div class="kh-note">
+        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+        Instant access &#183; No credit card
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="ks">
+    <div class="ks-grid">
+      <div class="ks-card r">
+        <div class="ks-num" style="color:#ff1744">721K</div>
+        <div class="ks-lbl">Subscribers</div>
+        <div class="ks-sub">Faceless channel</div>
+      </div>
+      <div class="ks-card r d1">
+        <div class="ks-num" style="color:#2979ff">24</div>
+        <div class="ks-lbl">Total Videos</div>
+        <div class="ks-sub">That&#39;s all it took</div>
+      </div>
+      <div class="ks-card r d2">
+        <div class="ks-num" style="color:#00e676">$10K+</div>
+        <div class="ks-lbl">Monthly Potential</div>
+        <div class="ks-sub">Pure passive revenue</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUE CARDS -->
+  <section class="kv">
+    <div class="kv-wrap">
+      <span class="kv-eye r">Why This Works</span>
+      <div class="kv-ttl r d1">3 Unfair Advantages</div>
+      <div class="kv-grid">
+        <div class="kv-card r">
+          <span class="kv-n">01</span>
+          <div class="kv-ico"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 3-1.34 3-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></div>
+          <h3>Infinite Audience</h3>
+          <p>Kids content is the #1 most-watched category on YouTube &#8212; globally, 24/7, every language.</p>
+          <div class="kv-chip"><svg viewBox="0 0 10 10"><circle cx="5" cy="5" r="5"/></svg>2.7B kids worldwide</div>
+        </div>
+        <div class="kv-card r d1">
+          <span class="kv-n">02</span>
+          <div class="kv-ico"><svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg></div>
+          <h3>No Face Needed</h3>
+          <p>100% AI-generated animations. No camera, no mic, no editing. Stay completely anonymous forever.</p>
+          <div class="kv-chip"><svg viewBox="0 0 10 10"><circle cx="5" cy="5" r="5"/></svg>Complete anonymity</div>
+        </div>
+        <div class="kv-card r d2">
+          <span class="kv-n">03</span>
+          <div class="kv-ico"><svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg></div>
+          <h3>Pure Passive Income</h3>
+          <p>Upload once. Earn forever. Kids rewatch the same content hundreds of times &#8212; compounding revenue with zero extra work.</p>
+          <div class="kv-chip"><svg viewBox="0 0 10 10"><circle cx="5" cy="5" r="5"/></svg>$10K+/mo potential</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA 2 -->
+  <section class="kc2">
+    <div class="kc2-orb"></div>
+    <div style="position:relative;z-index:2;">
+      <div class="kc2-pill r">&#10022; 100% Free &#183; No Credit Card</div>
+      <h2 class="r d1">Get the Full<br/>Blueprint Now</h2>
+      <p class="r d2">The exact system behind <strong style="color:rgba(255,255,255,.82)">721K subscribers</strong> with just 24 AI-animated videos &#8212; free.</p>
+      <button class="kb r d2" onclick="kabOpen()">
+        <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+        Download Blueprint (Free PDF)
+      </button>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="kf">
+    <div class="kn-brand">
+      <div class="kn-ico" style="width:22px;height:22px;border-radius:6px;">
+        <svg viewBox="0 0 24 24" fill="white" width="10" height="10"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+      <span class="kn-name">AnimationBlueprint</span>
+    </div>
+    <div class="kf-links">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="kf-tag">
+      <svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
+      Built for Creators
+    </div>
+  </footer>
+
+</div>
+
+<!-- MODAL -->
+<div id="kab-ov">
+  <div id="kab-mo">
+    <button id="kab-cl" onclick="kabClose()">&#215;</button>
+    <!-- Phase 1: Progress -->
+    <div id="kab-p1">
+      <div class="sp-ico">
+        <svg viewBox="0 0 24 24" fill="none" width="26" height="26">
+          <circle cx="12" cy="12" r="10" stroke="rgba(41,121,255,.2)" stroke-width="2.5"/>
+          <path d="M12 2 A10 10 0 0 1 22 12" stroke="#2979ff" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <h4>Preparing your secure download&#8230;</h4>
+      <p>Please wait while we verify and package your blueprint.</p>
+      <div id="kab-bw"><div id="kab-b"></div></div>
+      <div id="kab-pt">0%</div>
+    </div>
+    <!-- Phase 2: Verify -->
+    <div id="kab-p2">
+      <div class="v-ico">
+        <svg viewBox="0 0 24 24" fill="none" width="28" height="28">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#2979ff" stroke-width="1.8" fill="rgba(41,121,255,.1)"/>
+          <polyline points="9 12 11 14 15 10" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h3>Human Verification<br/>Required</h3>
+      <p class="vb">To prevent bot abuse and keep this blueprint <strong>exclusive</strong>, please complete one quick offer to unlock your download.</p>
+      <div class="vw">
+        <svg viewBox="0 0 24 24"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>
+        <span>This is a <strong>one-time step</strong>. Your PDF unlocks automatically after completion.</span>
+      </div>
+      <a class="vbtn" href="https://smrturl.co/1889505" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 13l-3-3 1.41-1.41L10 11.17l5.59-5.58L17 7l-7 7z"/></svg>
+        VERIFY &amp; DOWNLOAD NOW
+      </a>
+      <p class="vfn">By clicking you agree to our terms. Takes ~30 seconds.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+//<![CDATA[
+(function(){
+  var rAF=null;
+
+  // Scroll reveal
+  var els=document.querySelectorAll('#kab .r');
+  if(window.IntersectionObserver){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){entry.target.classList.add('in');io.unobserve(entry.target);}
+      });
+    },{threshold:0.1});
+    els.forEach(function(el){io.observe(el);});
+  } else {
+    els.forEach(function(el){el.classList.add('in');});
+  }
+
+  window.kabOpen=function(){
+    var ov=document.getElementById('kab-ov');
+    var p1=document.getElementById('kab-p1');
+    var p2=document.getElementById('kab-p2');
+    var bar=document.getElementById('kab-b');
+    var pct=document.getElementById('kab-pt');
+    p1.style.display='block';
+    p2.style.display='none';
+    p2.classList.remove('on');
+    bar.style.width='0%';
+    pct.textContent='0%';
+    ov.classList.add('on');
+    document.body.style.overflow='hidden';
+    if(rAF){cancelAnimationFrame(rAF);rAF=null;}
+    var start=null;
+    var dur=3000;
+    function step(ts){
+      if(!start){start=ts;}
+      var prog=Math.min((ts-start)/dur*100,100);
+      bar.style.width=prog+'%';
+      pct.textContent=Math.floor(prog)+'%';
+      if(prog < 100){
+        rAF=requestAnimationFrame(step);
+      } else {
+        setTimeout(function(){
+          p1.style.display='none';
+          p2.style.display='block';
+          setTimeout(function(){p2.classList.add('on');},10);
+        },180);
+      }
+    }
+    rAF=requestAnimationFrame(step);
+  };
+
+  window.kabClose=function(){
+    if(rAF){cancelAnimationFrame(rAF);rAF=null;}
+    document.getElementById('kab-ov').classList.remove('on');
+    document.body.style.overflow='';
+  };
+
+  document.getElementById('kab-ov').addEventListener('click',function(e){
+    if(e.target===this){kabClose();}
+  });
+
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'){kabClose();}
+  });
+})();
+//]]>
+</script>
